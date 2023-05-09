@@ -1,5 +1,5 @@
-import React from "react";
-import "./Blog2.css";
+import React, { useEffect } from "react";
+
 import Logo from "../../Images/Sets Logo.png";
 import { Link } from "react-router-dom";
 export default function Blog() {
@@ -26,6 +26,7 @@ export default function Blog() {
   var Cursor = document.getElementById("img");   
   Cursor.innerText = "☰";
 }
+
 
   return (
     <div>
@@ -54,15 +55,15 @@ export default function Blog() {
       </div>
       <div className="mobile-header">
           <div className="mobile-logo">
-            <a href="/">
+            <Link to="/">
               {" "}
               <img src={Logo} alt="" />{" "}
-            </a>
+            </Link>
           </div>
           <div className="mobile-icon">
-            <a href="" id="img" onClick={showData}>
+            <Link to="" id="img" onClick={showData}>
               ☰
-            </a>
+            </Link>
           </div>
         </div>
         <div className="mobile-navbar" id="content">
@@ -70,19 +71,19 @@ export default function Blog() {
             <ul>
             <div className="mobile-li-main">
               <li>
-                <a href="/">HOME</a>
+                <Link to="/">HOME</Link>
               </li>
               <li>
-                <a href="/">ABOUT</a>
+                <Link to="/">ABOUT</Link>
               </li>
               <li>
-                <a href="/">SERVICES</a>
+                <Link to="/">SERVICES</Link>
               </li>
               <li>
-                <a href="/">PROJECTS</a>
+                <Link to="/">PROJECTS</Link>
               </li>
               <li>
-                <a href="/">CONTACT US</a>
+                <Link to="/">CONTACT US</Link>
               </li>
               </div>
             </ul>
@@ -96,7 +97,7 @@ export default function Blog() {
               alt=""
             />
             <div className="blog-journal-content">
-              <a href="">Technology</a>
+              <Link to="">Technology</Link>
               <div className="journal">
                 <div className="journal-date">
                   <i className="ri-calendar-2-fill"></i>
@@ -104,7 +105,7 @@ export default function Blog() {
                 </div>
                 <div className="journal-date">
                   <p>By</p>
-                  <a href="">Park Lee</a>
+                  <Link to="">Park Lee</Link>
                 </div>
               </div>
               <h1>The Ultimate Guide to Plumbing Installation and Repair</h1>
@@ -194,9 +195,9 @@ export default function Blog() {
               <input type="text" name="" id="" placeholder="Keyword Search..."/>
             </div>
             <div className="blog-right-icon">
-              <a href="">
+              <Link to="">
                 <i class="ri-search-2-line"></i>
-              </a>
+              </Link>
             </div>
           </div>
           <div className="blog-right-recent"  onClick={closeNav}>
@@ -211,9 +212,9 @@ export default function Blog() {
                 />
               </div>
               <div className="recent-data">
-                <a href="">
+                <Link to="">
                   Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit.
-                </a>
+                </Link>
                 <p>
                   <i class="ri-time-line"></i>12 Feb, 2020
                 </p>
@@ -227,9 +228,9 @@ export default function Blog() {
                 />
               </div>
               <div className="recent-data">
-                <a href="">
+                <Link to="">
                   Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit.
-                </a>
+                </Link>
                 <p>
                   <i class="ri-time-line"></i>12 Feb, 2020
                 </p>
@@ -243,9 +244,9 @@ export default function Blog() {
                 />
               </div>
               <div className="recent-data">
-                <a href="">
+                <Link to="">
                   Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit.
-                </a>
+                </Link>
                 <p>
                   <i class="ri-time-line"></i>12 Feb, 2020
                 </p>
@@ -259,13 +260,13 @@ export default function Blog() {
             <div className="blog-category-list">
               <ul>
                 <li>
-                  <a href="">Technical Services</a>
+                  <Link to="">Technical Services</Link>
                 </li>
                 <li>
-                  <a href="">Engineering Design</a>
+                  <Link to="">Engineering Design</Link>
                 </li>
                 <li>
-                  <a href="">Facilities Management</a>
+                  <Link to="">Facilities Management</Link>
                 </li>
               </ul>
             </div>
@@ -276,18 +277,18 @@ export default function Blog() {
             </div>
             <div className="blog-tags-main-row">
               <div className="blog-tags-row">
-                <a href="">Fashion</a>
-                <a href="">Education</a>
-                <a href="">Nation</a>
+                <Link to="">Fashion</Link>
+                <Link to="">Education</Link>
+                <Link to="">Nation</Link>
               </div>
               <div className="blog-tags-row">
-                <a href="">Study</a>
-                <a href="">Health</a>
-                <a href="">Food</a>
+                <Link to="">Study</Link>
+                <Link to="">Health</Link>
+                <Link to="">Food</Link>
               </div>
               <div className="blog-tags-row">
-                <a href="">Travel</a>
-                <a href="">Science</a>
+                <Link to="">Travel</Link>
+                <Link to="">Science</Link>
               </div>
             </div>
           </div>
@@ -318,50 +319,50 @@ export default function Blog() {
       </div>
       <div className="footer-container"  onClick={closeNav}>
         <div className="footer-column1">
-         <a href="/"> <img src={Logo} alt="" /> </a>
+         <Link to="/"> <img src={Logo} alt="" /> </Link>
           <div className="after-footer-icons">
-            <a href="">
+            <Link to="">
               {" "}
               <i class="ri-facebook-fill"></i>{" "}
-            </a>
-            <a href="">
+            </Link>
+            <Link to="">
               <i class="ri-twitter-fill"></i>
-            </a>
-            <a href="">
+            </Link>
+            <Link to="">
               <i class="ri-instagram-fill"></i>
-            </a>
-            <a href="">
+            </Link>
+            <Link to="">
               {" "}
               <i class="ri-linkedin-fill"></i>
-            </a>
+            </Link>
           </div>
         </div>
         <div className="footer-column3">
           <ul>
-            <a href="">www.sets.com</a> <br />
-            <a href="">+91 9988776655</a> <br />
-            <a href="">info@sets.com</a>
+            <Link to="">www.sets.com</Link> <br />
+            <Link to="">+91 9988776655</Link> <br />
+            <Link to="">info@sets.com</Link>
           </ul>
         </div>
         <div className="footer-column2">
-          <a href="">Home</a>
+          <Link to="">Home</Link>
           <br />
-          <a href="">Company Overview</a>
+          <Link to="">Company Overview</Link>
           <br />
-          <a href="">Blogs</a>
+          <Link to="">Blogs</Link>
           <br />
-          <a href="">FAQs</a>
+          <Link to="">FAQs</Link>
           <br />
         </div>
         <div className="footer-column4">
         <div className="footer-column4-1">
-          <a href="">Privacy Policy</a> <br />
-          <a href="">Risk Disclosure</a> <br />
+          <Link to="">Privacy Policy</Link> <br />
+          <Link to="">Risk Disclosure</Link> <br />
           </div>
           <div className="footer-column4-2">
-          <a href="">Terms and Conditions</a>
+          <Link to="">Terms and Conditions</Link>
           <br />
-          <a href="">Security and Fraud Awareness</a>
+          <Link to="">Security and Fraud Awareness</Link>
           <br />
           </div>
         </div>
@@ -369,7 +370,7 @@ export default function Blog() {
       <div className="after-footer"  onClick={closeNav}>
         <div className="after-footer-text">
           <p>
-            Copyright 2023 <a href="">SETS.</a> A venture of Solid Edge
+            Copyright 2023 <Link to="">SETS.</Link> A venture of Solid Edge
             Technical Services LLC
           </p>
         </div>

@@ -3,13 +3,8 @@ import "./Sets.css";
 // import onScrollEvent from "./onScrollEvent";
 import Logo from "../Images/Sets Logo.png";
 import Bannerimg from "../Images/city5.jpg";
-import Collaborating from "../Images/cooperation.jpg";
-import Plans from "../Images/plan.jpg";
-import Technical from "../Images/technical.jpg";
-import Successful from "../Images/successful.jpg";
+
 import { Link } from "react-router-dom";
-import { red } from "@mui/material/colors";
-import { height, width } from "@mui/system";
 
 export default function Sets() {
   function scrolltotop() {
@@ -71,50 +66,45 @@ export default function Sets() {
       document.getElementById("mobile-header").style.top = "-50px";
     }
   }
-  
-  
- 
 
   return (
     <div className="App">
       <div className="navbar-container">
         <ul>
           <li>
-            <a href="">
-              {" "}
-              <img src={Logo} alt="" />{" "}
-            </a>
+            <Link to="">
+              <img src={Logo} alt="" />
+            </Link>
           </li>
           <br />
           <li>
-            <a href="#home">HOME</a>
+            <Link to="#home">HOME</Link>
           </li>
           <li>
-            <a href="#about">ABOUT</a>
+            <Link to="#about">ABOUT</Link>
           </li>
           <li>
-            <a href="#service">SERVICES</a>
+            <Link to="#service">SERVICES</Link>
           </li>
           <li>
-            <a href="#project">PROJECT</a>
+            <Link to="#project">PROJECT</Link>
           </li>
           <li>
-            <a href="#contact">CONTACT US</a>
+            <Link to="#contact">CONTACT US</Link>
           </li>
         </ul>
       </div>
 
       <div className="mobile-header">
         <div className="mobile-logo">
-          <a href="/">
-            {" "}
-            <img src={Logo} alt="" />{" "}
-          </a>
+          <Link to="/">
+            <img src={Logo} alt="" />
+          </Link>
         </div>
         <div className="mobile-icon">
-          <a href="" id="img" onClick={showData}>
+          <Link to="" id="img" onClick={showData}>
             ☰
-          </a>
+          </Link>
         </div>
       </div>
       <div className="mobile-navbar" id="content">
@@ -122,19 +112,19 @@ export default function Sets() {
           <ul>
             <div className="mobile-li-main">
               <li onClick={closeNav}>
-                <a href="#home">HOME</a>
+                <Link to="#home">HOME</Link>
               </li>
               <li onClick={closeNav}>
-                <a href="#about">ABOUT</a>
+                <Link to="#about">ABOUT</Link>
               </li>
               <li onClick={closeNav}>
-                <a href="#service">SERVICES</a>
+                <Link to="#service">SERVICES</Link>
               </li>
               <li onClick={closeNav}>
-                <a href="#project">PROJECTS</a>
+                <Link to="#project">PROJECTS</Link>
               </li>
               <li onClick={closeNav}>
-                <a href="#contact">CONTACT US</a>
+                <Link to="#contact">CONTACT US</Link>
               </li>
             </div>
           </ul>
@@ -150,7 +140,7 @@ export default function Sets() {
             interests and trust.
           </p>
           <div className="banner-btn">
-            <a href="#contact">Start Now</a>
+            <Link to="#contact">Start Now</Link>
           </div>
         </div>
         <div className="banner-image">
@@ -164,8 +154,7 @@ export default function Sets() {
             <span onClick={close}>&times;</span>
             <form
               action="https://getform.io/f/07b22bfb-7e6b-4c2e-b610-c4c73983b7a5"
-              method="POST"
-            >
+              method="POST">
               <div className="form-heading">
                 <h6>Contact Us</h6>
               </div>
@@ -460,7 +449,7 @@ export default function Sets() {
               alt=""
             />
             <div className="project-content">
-              <a href="">Cyber Security</a>
+              <Link to="">Cyber Security</Link>
             </div>
           </div>
           <div className="project-img">
@@ -469,7 +458,7 @@ export default function Sets() {
               alt=""
             />
             <div className="project-content">
-              <a href="">IT Consultancy</a>
+              <Link to="">IT Consultancy</Link>
             </div>
           </div>
           <div className="project-img">
@@ -478,7 +467,7 @@ export default function Sets() {
               alt=""
             />
             <div className="project-content">
-              <a href="">Analysis of Security</a>
+              <Link to="">Analysis of Security</Link>
             </div>
           </div>
         </div>
@@ -523,7 +512,7 @@ export default function Sets() {
             </li>
             <li>
               <label htmlFor="third">
-                What is the context of building design and construction?{" "}
+                What is the context of building design and construction?
                 <span>&#x3e;</span>
               </label>
               <input type="radio" id="third" name="faq" checked />
@@ -551,18 +540,13 @@ export default function Sets() {
               alt=""
             />
             <div className="blog-cart-content">
-              <a href="">Technology</a>
-              <Link
-                to="/blog1"
-                onClick={() => window.location.href("blog1")}
-              >
-                {" "}
+              <Link to="">Technology</Link>
+              <a href="/blog1" >
                 <h3>
-                  {" "}
                   The Ultimate Guide to Electromechanical Equipment Installation
                   and Maintenance
-                </h3>{" "}
-              </Link>
+                </h3>
+              </a>
             </div>
           </div>
           <div className="blog-cart">
@@ -571,14 +555,10 @@ export default function Sets() {
               alt=""
             />
             <div className="blog-cart-content">
-              <a href="">Engineering Design</a>
-              <Link to="/blog2" onClick={() => window.location.href("blog2")}>
-                {" "}
-                <h3>
-                  {" "}
-                  The Ultimate Guide to Plumbing Installation and Repair{" "}
-                </h3>{" "}
-              </Link>
+              <Link to="">Engineering Design</Link>
+              <a href="/blog2">
+                <h3>The Ultimate Guide to Plumbing Installation and Repair</h3>
+              </a>
             </div>
           </div>
           <div className="blog-cart">
@@ -587,11 +567,10 @@ export default function Sets() {
               alt=""
             />
             <div className="blog-cart-content">
-              <a href="">Facilities Management</a>
-              <Link to="/blog3" onClick={() => window.location.href("blog3")}>
-                {" "}
-                <h3> Additions in conveying or collected objection </h3>{" "}
-              </Link>
+              <Link to="">Facilities Management</Link>
+              <a href="/blog3">
+                <h3> Additions in conveying or collected objection </h3>
+              </a>
             </div>
           </div>
         </div>
@@ -605,8 +584,7 @@ export default function Sets() {
           <div className="form-input">
             <form
               action="https://getform.io/f/07b22bfb-7e6b-4c2e-b610-c4c73983b7a5"
-              method="POST"
-            >
+              method="POST">
               <input
                 onChange={(e) => setName(e.target.value)}
                 type="text"
@@ -648,22 +626,20 @@ export default function Sets() {
             <div className="form-details">
               <div className="form-row">
                 <h3>
-                  {" "}
                   <i className="ri-map-pin-fill"></i>Office 501, AI Qusais IND
                   4,UAE
                 </h3>
               </div>
               <div className="form-row">
                 <h3>
-                  {" "}
-                  <i className="ri-mail-fill"></i>{" "}
-                  <a href=""> info@sets.com </a>
+                  <i className="ri-mail-fill"></i>
+                  <Link to=""> info@sets.com </Link>
                 </h3>
               </div>
               <div className="form-row">
                 <h3>
-                  <i className="ri-phone-fill"></i>{" "}
-                  <a href=""> +91 1122334455</a>
+                  <i className="ri-phone-fill"></i>
+                  <Link to=""> +91 1122334455</Link>
                 </h3>
               </div>
             </div>
@@ -686,53 +662,50 @@ export default function Sets() {
       </div>
       <div className="footer-container" onClick={closeNav}>
         <div className="footer-column1">
-          <a href="/">
-            {" "}
-            <img src={Logo} alt="" />{" "}
-          </a>
+          <Link to="/">
+            <img src={Logo} alt="" />
+          </Link>
           <div className="after-footer-icons">
-            <a href="">
-              {" "}
-              <i className="ri-facebook-fill"></i>{" "}
-            </a>
-            <a href="">
+            <Link to="">
+              <i className="ri-facebook-fill"></i>
+            </Link>
+            <Link to="">
               <i className="ri-twitter-fill"></i>
-            </a>
-            <a href="">
+            </Link>
+            <Link to="">
               <i className="ri-instagram-fill"></i>
-            </a>
-            <a href="">
-              {" "}
+            </Link>
+            <Link to="">
               <i className="ri-linkedin-fill"></i>
-            </a>
+            </Link>
           </div>
         </div>
         <div className="footer-column3">
-          <a href="">www.sets.com</a>
+          <Link to="">www.sets.com</Link>
           <br />
-          <a href="">+91 1122334455</a>
+          <Link to="">+91 1122334455</Link>
           <br />
-          <a href="">info@sets.com</a>
+          <Link to="">info@sets.com</Link>
         </div>
         <div className="footer-column2">
-          <a href="#home">Home</a>
+          <Link to="#home">Home</Link>
           <br />
-          <a href="#about">About</a>
+          <Link to="#about">About</Link>
           <br />
-          <a href="#blog">Blogs</a>
+          <Link to="#blog">Blogs</Link>
           <br />
-          <a href="#frequently">FAQs</a>
+          <Link to="#frequently">FAQs</Link>
           <br />
         </div>
         <div className="footer-column4">
           <div className="footer-column4-1">
-            <a href="">Privacy Policy</a> <br />
-            <a href="">Risk Disclosure</a> <br />
+            <Link to="">Privacy Policy</Link> <br />
+            <Link to="">Risk Disclosure</Link> <br />
           </div>
           <div className="footer-column4-2">
-            <a href="">Terms and Conditions</a>
+            <Link to="">Terms and Conditions</Link>
             <br />
-            <a href="">Security and Fraud Awareness</a>
+            <Link to="">Security and Fraud Awareness</Link>
             <br />
           </div>
         </div>
@@ -740,14 +713,14 @@ export default function Sets() {
       <div className="after-footer" onClick={closeNav}>
         <div className="after-footer-text">
           <p>
-            Copyright 2023 <a href="">SETS.</a> A venture of Solid Edge
+            Copyright 2023 <Link to="/">SETS.</Link> A venture of Solid Edge
             Technical Services LLC
           </p>
         </div>
         <div className="after-footer-text2">
           <p>
             Created By
-            <a href="http://www.webseeder.in/">WebSeeder Technologies</a>
+            <a href="http://www.webseeder.in/" target="_blank" rel='noreferrer'>WebSeeder Technologies</a>
           </p>
         </div>
       </div>
