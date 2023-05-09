@@ -38,7 +38,7 @@ export default function Blog() {
           </li>
           <br />
           <li onClick={closeNav}>
-            <Link to="#home">HOME</Link>
+            <Link to="/">HOME</Link>
           </li>
           <li onClick={closeNav}>
             <Link to="#about">ABOUT</Link>
@@ -57,8 +57,8 @@ export default function Blog() {
       <div className="mobile-header">
           <div className="mobile-logo">
             <Link to="/">
-              {" "}
-              <img src={Logo} alt="" />{" "}
+              
+              <img src={Logo} alt="" />
             </Link>
           </div>
           <div className="mobile-icon">
@@ -130,7 +130,7 @@ export default function Blog() {
                 Solid Edge to the top of the green energy market.
               </p>
               <p>
-                {" "}
+                
                 At Solid Edge, we place a high emphasis on our dedication to
                 going above and beyond for our clients. We work hard to deliver
                 the best services at fair prices, and our team is constantly
@@ -142,7 +142,7 @@ export default function Blog() {
                 every turn.
               </p>
               <p>
-                {" "}
+                
                 In today's modern world, air conditioning, ventilation, and air
                 filtration systems are essential for maintaining comfortable and
                 healthy indoor environments. However, proper installation and
@@ -257,7 +257,7 @@ export default function Blog() {
               </div>
               <div className="recent-data">
                 <Link to="">
-                  Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit.
+                The Ultimate Guide to Plumbing Installation and Repair
                 </Link>
                 <p>
                   <i class="ri-time-line"></i>12 Feb, 2020
@@ -273,7 +273,8 @@ export default function Blog() {
               </div>
               <div className="recent-data">
                 <Link to="">
-                  Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit.
+                The Ultimate Guide to Electromechanical Equipment Installation
+                and Maintenance
                 </Link>
                 <p>
                   <i class="ri-time-line"></i>12 Feb, 2020
@@ -331,14 +332,14 @@ export default function Blog() {
             action="https://getform.io/f/07b22bfb-7e6b-4c2e-b610-c4c73983b7a5"
             method="POST"
           >
-            <input type="text" placeholder="Name*" name="name" required />{" "}
+            <input type="text" placeholder="Name*" name="name" required />
             <br />
             <input
               type="text"
               placeholder="Email*"
               name="email"
               required
-            />{" "}
+            />
             <br />
             <input type="text" placeholder="Comment" name="comments" /> <br />
             <button>Post Comments</button>
@@ -350,8 +351,8 @@ export default function Blog() {
          <Link to="/"> <img src={Logo} alt="" /> </Link>
           <div className="after-footer-icons">
             <Link to="">
-              {" "}
-              <i class="ri-facebook-fill"></i>{" "}
+              
+              <i class="ri-facebook-fill"></i>
             </Link>
             <Link to="">
               <i class="ri-twitter-fill"></i>
@@ -360,7 +361,7 @@ export default function Blog() {
               <i class="ri-instagram-fill"></i>
             </Link>
             <Link to="">
-              {" "}
+              
               <i class="ri-linkedin-fill"></i>
             </Link>
           </div>

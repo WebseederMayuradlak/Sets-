@@ -567,7 +567,7 @@ export default function Sets() {
             />
             <div className="blog-cart-content">
               <Link to="">Facilities Management</Link>
-              <a href="/blog3">
+              <a href="/">
                 <h3> Additions in conveying or collected objection </h3>
               </a>
             </div>

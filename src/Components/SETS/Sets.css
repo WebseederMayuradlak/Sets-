@@ -670,10 +670,11 @@ input::-webkit-inner-spin-button {
 .process-flex .flex i {
   color: rgb(38, 162, 215);
   font-size: 7vh;
+  display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 17vh;
-  margin-top: 10vh;
+  /* margin-left: 17vh;
+  margin-top: 10vh; */
 }
 .process-container .process-flex .flex-details {
   margin-top: 3vh;
