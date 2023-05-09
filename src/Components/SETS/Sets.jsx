@@ -1,0 +1,756 @@
+import React, { useState } from "react";
+import "./Sets.css";
+// import onScrollEvent from "./onScrollEvent";
+import Logo from "../Images/Sets Logo.png";
+import Bannerimg from "../Images/city5.jpg";
+import Collaborating from "../Images/cooperation.jpg";
+import Plans from "../Images/plan.jpg";
+import Technical from "../Images/technical.jpg";
+import Successful from "../Images/successful.jpg";
+import { Link } from "react-router-dom";
+import { red } from "@mui/material/colors";
+import { height, width } from "@mui/system";
+
+export default function Sets() {
+  function scrolltotop() {
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 100);
+  }
+  const Image1 =
+    "https://plus.unsplash.com/premium_photo-1663011305288-d55df8afa58e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80";
+  const Image2 =
+    "https://images.unsplash.com/photo-1565728744382-61accd4aa148?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2073&q=80";
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
+  const [popUp, setPopup] = useState(false);
+  const [nav, setNav] = useState(false);
+
+  console.log(name);
+  console.log(email);
+  console.log(phone);
+  console.log(message);
+
+  const close = () => {
+    setPopup(!popUp);
+  };
+
+  var showData = (e) => {
+    e.preventDefault();
+    var content = document.getElementById("content");
+
+    var Cursor = document.getElementById("img");
+    if (content.style.display === "block") {
+      content.style.display = "none";
+      Cursor.innerText = "☰";
+    } else {
+      content.style.display = "block";
+      Cursor.innerText = "X";
+    }
+  };
+  const closeNav = () => {
+    const myId = document.getElementById("content");
+    myId.style.display = "none";
+    var Cursor = document.getElementById("img");
+    Cursor.innerText = "☰";
+  };
+
+  window.onscroll = function () {
+    scrollFunction();
+  };
+
+  function scrollFunction() {
+    if (
+      document.body.scrollTop > 50 ||
+      document.documentElement.scrollTop > 50
+    ) {
+      document.getElementById("mobile-header").style.top = "0";
+    } else {
+      document.getElementById("mobile-header").style.top = "-50px";
+    }
+  }
+  
+  
+ 
+
+  return (
+    <div className="App">
+      <div className="navbar-container">
+        <ul>
+          <li>
+            <a href="">
+              {" "}
+              <img src={Logo} alt="" />{" "}
+            </a>
+          </li>
+          <br />
+          <li>
+            <a href="#home">HOME</a>
+          </li>
+          <li>
+            <a href="#about">ABOUT</a>
+          </li>
+          <li>
+            <a href="#service">SERVICES</a>
+          </li>
+          <li>
+            <a href="#project">PROJECT</a>
+          </li>
+          <li>
+            <a href="#contact">CONTACT US</a>
+          </li>
+        </ul>
+      </div>
+
+      <div className="mobile-header">
+        <div className="mobile-logo">
+          <a href="/">
+            {" "}
+            <img src={Logo} alt="" />{" "}
+          </a>
+        </div>
+        <div className="mobile-icon">
+          <a href="" id="img" onClick={showData}>
+            ☰
+          </a>
+        </div>
+      </div>
+      <div className="mobile-navbar" id="content">
+        <div className="mobile-navbar-content">
+          <ul>
+            <div className="mobile-li-main">
+              <li onClick={closeNav}>
+                <a href="#home">HOME</a>
+              </li>
+              <li onClick={closeNav}>
+                <a href="#about">ABOUT</a>
+              </li>
+              <li onClick={closeNav}>
+                <a href="#service">SERVICES</a>
+              </li>
+              <li onClick={closeNav}>
+                <a href="#project">PROJECTS</a>
+              </li>
+              <li onClick={closeNav}>
+                <a href="#contact">CONTACT US</a>
+              </li>
+            </div>
+          </ul>
+        </div>
+      </div>
+      <div className="banner-container" id="home" onClick={closeNav}>
+        <div className="banner-content">
+          <h3>Welcome to Solid Edge Technical Services LLC</h3>
+          <h1>WE BUILT RELATIONSHIP</h1>
+          <h2>FROM WHAT WE DO</h2>
+          <p>
+            Clients are our assets, and we specialize in protecting their
+            interests and trust.
+          </p>
+          <div className="banner-btn">
+            <a href="#contact">Start Now</a>
+          </div>
+        </div>
+        <div className="banner-image">
+          <img src={Bannerimg} alt="" />
+        </div>
+        <div
+          className={`${popUp ? "banner-form-main" : "show-form"}`}
+          //  onClick={close}
+        >
+          <div className="banner-form">
+            <span onClick={close}>&times;</span>
+            <form
+              action="https://getform.io/f/07b22bfb-7e6b-4c2e-b610-c4c73983b7a5"
+              method="POST"
+            >
+              <div className="form-heading">
+                <h6>Contact Us</h6>
+              </div>
+              <div className="form-element-main">
+                <div className="form-element">
+                  <label htmlFor="">Name</label> <br />
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Enter your name..."
+                    required
+                  />
+                </div>
+                <div className="form-element">
+                  <label htmlFor="">Email</label> <br />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter your mail..."
+                    required
+                  />
+                </div>
+                <div className="form-element">
+                  <label htmlFor="">Phone</label> <br />
+                  <input
+                    type="number"
+                    name="phone"
+                    placeholder="Enter your number..."
+                  />
+                </div>
+                <div className="form-element">
+                  <label htmlFor="">Message</label> <br />
+                  <input
+                    type="text"
+                    name="message"
+                    placeholder="Enter your message..."
+                  />
+                </div>
+                <button className="banner-form-btn">SUBMIT</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div className="about-top" id="about" onClick={closeNav}>
+        <h2>We Help IT Companies Scale Engineering Capacity</h2>
+      </div>
+      <div className="about-container" id="about" onClick={closeNav}>
+        <div className="about-container-image">
+          <div className="about-image1">
+            <img src={Image1} alt="" />
+          </div>
+          <div className="about-image2">
+            <img src={Image2} alt="" />
+          </div>
+        </div>
+        <div className="about-container-text">
+          <h2>WHO ARE WE? </h2>
+          <p>
+            Solid Edge is a Dubai-based company specializing in general and
+            specialist maintenance, MEP design and project management, HVAC and
+            electrical testing and commissioning, fit and refurbishment work,
+            and saving-green solutions across the UAE. Solutions offered to our
+            clients make us win their belief and trust: the quality is what
+            matters, the price is unbeatable, and they complement each other.
+          </p>
+          <div className="icon1">
+            <div className="about-icon">
+              <i className="ri-draft-fill"></i>
+            </div>
+            <div className="about-icon-text">
+              <h3>Certified Company</h3>
+              <p>
+                Our Commitment to Delivering Exceptional Products and Services
+                with Uncompromising Standards.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="service-container" id="service" onClick={closeNav}>
+        <div className="service-container-text">
+          <h3>_____ WHY CHOOSE US</h3>
+          <h2>Customized Technical Services for Your Company</h2>
+          <p>
+            Solid Edge Technical Services is supported by a consolidated team of
+            specialized, dedicated engineers and a committed management team,
+            which form the inner strength of an organization. Our success is
+            constantly based on our ability to satisfy our client's requests,
+            and we firmly believe that our client's interests should always come
+            first. We go above and beyond our commitment to turning our client's
+            ideas into reality while keeping in mind all the minute details
+            involved in the entire process. We do this by using a distinctive
+            approach with our clients.
+          </p>
+        </div>
+        <div className="service-container-cart">
+          <div className="service-cart-row1">
+            <div className="cart-1">
+              <div className="cart-details">
+                <i className="ri-settings-6-fill"></i>
+                <h3>Technical Services</h3>
+                <p>
+                  Expert technical services to optimize your business
+                  operations.
+                </p>
+              </div>
+            </div>
+            <div className="cart-1">
+              <div className="cart-details">
+                <i className="ri-pencil-ruler-2-fill"></i>
+                <h3>Engineering Design</h3>
+                <p>
+                  Transforming ideas into reality with precision engineering
+                  design.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="service-cart-row2">
+            <div className="cart-2">
+              <div className="cart-details">
+                <i className="ri-building-fill"></i>
+                <h3>Facilities Management</h3>
+                <p>
+                  Efficient and reliable facilities management services to
+                  enhance your business infrastructure
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="process-container" onClick={closeNav}>
+        <div className="process-heading">
+          <h2>OUR PROCESS</h2>
+        </div>
+        <div className="process-flex">
+          <div className="flex">
+            <div className="flex-details">
+              <i className="ri-team-fill"></i>
+              <h4>Collaborating closely with clients</h4>
+              <p>
+                Preparation and Briefing at most assuring the client's vision is
+                met.
+              </p>
+            </div>
+          </div>
+          <div className="flex">
+            <div className="flex-details">
+              <i className="ri-calendar-fill"></i>
+              <h4>Developing plans and designs</h4>
+              <p>
+                Technical Design confirms the necessity and comfort levels are
+                assured.
+              </p>
+            </div>
+          </div>
+          <div className="flex">
+            <div className="flex-details">
+              <i className="ri-trophy-fill"></i>
+              <h4>
+                Technical Design confirms the necessity and comfort levels are
+                assured.
+              </h4>
+              <p>
+                Construction with high standard material and works performed
+                with all safety measures.
+              </p>
+            </div>
+          </div>
+          <div className="flex">
+            <div className="flex-details">
+              <i className="ri-list-settings-fill"></i>
+              <h4>Ensure successful project outcomes</h4>
+              <p>
+                Handover and Close out with the commitment of duration agreed
+                with required approvals.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="cta-banner1" onClick={closeNav}>
+        <div className="cta-banner1-text">
+          <h3>_____WORKS ABOUT</h3>
+          <h2>OUR SPECIALIZATIONS</h2>
+          <p>
+            <ul>
+              <li>General to Specialist Maintenance</li>
+              <li>General to Specialist Maintenance</li>
+              <li>Projects Management</li>
+              <li>Fit Out & Refurbishment Work</li>
+              <li>HVAC, Electrical Testing & Commissioning</li>
+              <li>Energy Saving – Green Solution</li>
+            </ul>
+            Our greatest strength is our team, our ability to complete projects
+            on time, and our client-focused, flexible work approach.
+          </p>
+          <h4>
+            <i className="ri-checkbox-circle-fill"> 100% Client Satisfaction</i>
+          </h4>
+          <h4>
+            <i className="ri-checkbox-circle-fill"> World Class Worker</i>
+          </h4>
+        </div>
+        <div className="cta-banner1-img">
+          <img
+            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
+            alt=""
+          />
+        </div>
+      </div>
+      <div className="cta-banner2-container" onClick={closeNav}>
+        <div className="cta-banner2-column1">
+          <div className="cta-banner2-text">
+            <h2>NEED HELP?</h2>
+            <p>
+              All difficult Technical problems have simple solutions,Maintain
+              business security and availability.
+            </p>
+          </div>
+        </div>
+        <div className="cta-banner2-column2">
+          <button onClick={() => setPopup(!popUp)}>Book an Appointment</button>
+        </div>
+      </div>
+      <div className="offer-container" onClick={closeNav}>
+        <div className="offer-heading">
+          <h2>WHAT WE OFFER</h2>
+        </div>
+        <div className="offer-carts">
+          <div className="offer">
+            <div className="offer-details">
+              <i className="ri-voice-recognition-fill"></i>
+              <h3>Electromechanical Equipment Installation & Maintenance</h3>
+              <p>
+                Electromechanical equipment installation and maintenance
+                involves the installation, repair, and maintenance of complex
+                systems that combine electrical and mechanical components.
+              </p>
+            </div>
+          </div>
+          <div className="offer">
+            <div className="offer-details">
+              <i className="ri-price-tag-2-fill"></i>
+              <h3>Partition & False Ceiling Contracting</h3>
+              <p>
+                Partition and false ceiling contracting services are critical in
+                the construction industry. They are essential components of
+                interior design and play a crucial role in enhancing buildings'
+                aesthetic appeal and functionality.
+              </p>
+            </div>
+          </div>
+          <div className="offer">
+            <div className="offer-details">
+              <i className="ri-shield-cross-fill"></i>
+
+              <h3>Sanitary Installation & Pipes Repairing Works</h3>
+              <p>
+                Sanitary installation and pipe repair works involve the
+                installation, repair, and maintenance of plumbing systems in
+                residential, commercial, and industrial settings.
+              </p>
+            </div>
+          </div>
+          <div className="offer">
+            <div className="offer-details">
+              <i className="ri-flood-fill"></i>
+              <h3>Painting Contracting Carpentry & Floor Contracting</h3>
+              <p>
+                Painting contracting, carpentry, and floor contracting are three
+                related fields that involve the installation, repair, and
+                maintenance of various aspects of a building's interior and
+                exterior.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="project" onClick={closeNav}></div>
+      <div className="project-container" onClick={closeNav}>
+        <div className="project-heading">
+          <h3>_____PORTFOLIO</h3>
+          <h2>OUR WORK SHOWCASE</h2>
+        </div>
+        <div className="project-carts">
+          <div className="project-img">
+            <img
+              src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+              alt=""
+            />
+            <div className="project-content">
+              <a href="">Cyber Security</a>
+            </div>
+          </div>
+          <div className="project-img">
+            <img
+              src="https://images.unsplash.com/photo-1524758870432-af57e54afa26?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
+              alt=""
+            />
+            <div className="project-content">
+              <a href="">IT Consultancy</a>
+            </div>
+          </div>
+          <div className="project-img">
+            <img
+              src="https://images.unsplash.com/photo-1573167507387-6b4b98cb7c13?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80"
+              alt=""
+            />
+            <div className="project-content">
+              <a href="">Analysis of Security</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="faq-container" id="frequently" onClick={closeNav}>
+        <div className="faq-heading">
+          <h3>___ FAQ</h3>
+          <h2>Most common question about our services </h2>
+        </div>
+        <div className="faq-questions">
+          <ul id="faq">
+            <li>
+              <label htmlFor="first">
+                What is typically required in a building design project?
+                <span>&#x3e;</span>
+              </label>
+              <input type="radio" id="first" name="faq" checked />
+              <div className="content">
+                <p>
+                  A building design project typically requires a range of
+                  technical services including electrical, mechanical, plumbing,
+                  fire protection, IT, audio-visual, and security system design
+                  and implementation.
+                </p>
+              </div>
+            </li>
+            <li>
+              <label htmlFor="second">
+                How do technical services impact the overall cost and timeline
+                of a construction project?
+                <span>&#x3e;</span>
+              </label>
+              <input type="radio" id="second" name="faq" checked />
+              <div className="content">
+                <p>
+                  Technical services can significantly impact the cost and
+                  timeline of a construction project as they involve complex
+                  systems that require coordination, planning, and installation,
+                  which can affect the overall project schedule and budget.
+                </p>
+              </div>
+            </li>
+            <li>
+              <label htmlFor="third">
+                What is the context of building design and construction?{" "}
+                <span>&#x3e;</span>
+              </label>
+              <input type="radio" id="third" name="faq" checked />
+              <div className="content">
+                <p>
+                  Building design and construction refers to the process of
+                  creating structures that meet specific functional and
+                  aesthetic requirements, often including aspects such as
+                  safety, sustainability, and accessibility.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div className="blog-container" id="blog" onClick={closeNav}>
+        <div className="blog-content">
+          <h3>_____POPULAR NEWS</h3>
+          <h2>LATEST FROM OUR BLOG</h2>
+        </div>
+        <div className="blog-blogs">
+          <div className="blog-cart">
+            <img
+              src="https://images.unsplash.com/photo-1562564055-71e051d33c19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+              alt=""
+            />
+            <div className="blog-cart-content">
+              <a href="">Technology</a>
+              <Link
+                to="/blog1"
+                onClick={() => window.location.href("blog1")}
+              >
+                {" "}
+                <h3>
+                  {" "}
+                  The Ultimate Guide to Electromechanical Equipment Installation
+                  and Maintenance
+                </h3>{" "}
+              </Link>
+            </div>
+          </div>
+          <div className="blog-cart">
+            <img
+              src="https://images.unsplash.com/photo-1589988071674-c4a2004d2336?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2103&q=80"
+              alt=""
+            />
+            <div className="blog-cart-content">
+              <a href="">Engineering Design</a>
+              <Link to="/blog2" onClick={() => window.location.href("blog2")}>
+                {" "}
+                <h3>
+                  {" "}
+                  The Ultimate Guide to Plumbing Installation and Repair{" "}
+                </h3>{" "}
+              </Link>
+            </div>
+          </div>
+          <div className="blog-cart">
+            <img
+              src="https://images.unsplash.com/photo-1546426094-ac58edd9eae5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1936&q=80"
+              alt=""
+            />
+            <div className="blog-cart-content">
+              <a href="">Facilities Management</a>
+              <Link to="/blog3" onClick={() => window.location.href("blog3")}>
+                {" "}
+                <h3> Additions in conveying or collected objection </h3>{" "}
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="form-container" id="contact" onClick={closeNav}>
+        <div className="form-main-container">
+          <h2>DISCUSS NOW!</h2>
+        </div>
+        <div className="form-part2">
+          <div className="form-input">
+            <form
+              action="https://getform.io/f/07b22bfb-7e6b-4c2e-b610-c4c73983b7a5"
+              method="POST"
+            >
+              <input
+                onChange={(e) => setName(e.target.value)}
+                type="text"
+                placeholder="Full Name"
+                name="name"
+                required
+              />
+              <br />
+              <input
+                onChange={(e) => setEmail(e.target.value)}
+                type="email"
+                placeholder="Email"
+                name="email"
+                required
+              />
+              <br />
+              <input
+                onChange={(e) => setPhone(e.target.value)}
+                type="number"
+                placeholder="Phone Number"
+                name="phone"
+                required
+              />
+              <br />
+              <textarea
+                onChange={(e) => setMessage(e.target.value)}
+                placeholder=" Message..."
+                name="message"
+              />
+              <br />
+              <button>Send Message</button>
+            </form>
+          </div>
+          <div className="form-right-part">
+            <div className="form-heading">
+              <h2>LET's TALK</h2>
+              <h4>Get in touch to discuss your next project</h4>
+            </div>
+            <div className="form-details">
+              <div className="form-row">
+                <h3>
+                  {" "}
+                  <i className="ri-map-pin-fill"></i>Office 501, AI Qusais IND
+                  4,UAE
+                </h3>
+              </div>
+              <div className="form-row">
+                <h3>
+                  {" "}
+                  <i className="ri-mail-fill"></i>{" "}
+                  <a href=""> info@sets.com </a>
+                </h3>
+              </div>
+              <div className="form-row">
+                <h3>
+                  <i className="ri-phone-fill"></i>{" "}
+                  <a href=""> +91 1122334455</a>
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="newsletter-container" onClick={closeNav}>
+        <div className="newsletter-back">
+          <div className="newsletter-back-img1">
+            <div className="newsletter-back-img2"></div>
+          </div>
+        </div>
+        <div className="newsletter-content">
+          <h2>Let's Discuss Your Idea!</h2>
+          <form action="">
+            <input type="text" placeholder="Please Enter Your Email" required />
+            <button>Submit!</button>
+          </form>
+        </div>
+      </div>
+      <div className="footer-container" onClick={closeNav}>
+        <div className="footer-column1">
+          <a href="/">
+            {" "}
+            <img src={Logo} alt="" />{" "}
+          </a>
+          <div className="after-footer-icons">
+            <a href="">
+              {" "}
+              <i className="ri-facebook-fill"></i>{" "}
+            </a>
+            <a href="">
+              <i className="ri-twitter-fill"></i>
+            </a>
+            <a href="">
+              <i className="ri-instagram-fill"></i>
+            </a>
+            <a href="">
+              {" "}
+              <i className="ri-linkedin-fill"></i>
+            </a>
+          </div>
+        </div>
+        <div className="footer-column3">
+          <a href="">www.sets.com</a>
+          <br />
+          <a href="">+91 1122334455</a>
+          <br />
+          <a href="">info@sets.com</a>
+        </div>
+        <div className="footer-column2">
+          <a href="#home">Home</a>
+          <br />
+          <a href="#about">About</a>
+          <br />
+          <a href="#blog">Blogs</a>
+          <br />
+          <a href="#frequently">FAQs</a>
+          <br />
+        </div>
+        <div className="footer-column4">
+          <div className="footer-column4-1">
+            <a href="">Privacy Policy</a> <br />
+            <a href="">Risk Disclosure</a> <br />
+          </div>
+          <div className="footer-column4-2">
+            <a href="">Terms and Conditions</a>
+            <br />
+            <a href="">Security and Fraud Awareness</a>
+            <br />
+          </div>
+        </div>
+      </div>
+      <div className="after-footer" onClick={closeNav}>
+        <div className="after-footer-text">
+          <p>
+            Copyright 2023 <a href="">SETS.</a> A venture of Solid Edge
+            Technical Services LLC
+          </p>
+        </div>
+        <div className="after-footer-text2">
+          <p>
+            Created By
+            <a href="http://www.webseeder.in/">WebSeeder Technologies</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
