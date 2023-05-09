@@ -38,19 +38,19 @@ export default function Blog() {
           </li>
           <br />
           <li onClick={closeNav}>
-            <Link to="/#home">HOME</Link>
+            <Link to="#home">HOME</Link>
           </li>
           <li onClick={closeNav}>
-            <Link to="/#about">ABOUT</Link>
+            <Link to="#about">ABOUT</Link>
           </li>
           <li onClick={closeNav}>
-            <Link to="/#home">SERVICES</Link>
+            <Link to="#home">SERVICES</Link>
           </li>
           <li onClick={closeNav}>
-            <Link to="/#home">PROJECT</Link>
+            <Link to="#home">PROJECT</Link>
           </li>
           <li onClick={closeNav}>
-            <Link to="/#home">CONTACT US</Link>
+            <Link to="#home">CONTACT US</Link>
           </li>
         </ul>
       </div>

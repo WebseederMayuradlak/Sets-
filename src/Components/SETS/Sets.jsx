@@ -3,7 +3,7 @@ import "./Sets.css";
 // import onScrollEvent from "./onScrollEvent";
 import Logo from "../Images/Sets Logo.png";
 import Bannerimg from "../Images/city5.jpg";
-
+import {Link as ScrollToId} from "react-scroll"
 import { Link } from "react-router-dom";
 
 export default function Sets() {
@@ -78,19 +78,19 @@ export default function Sets() {
           </li>
           <br />
           <li>
-            <Link to="#home">HOME</Link>
+            <a href="#home">HOME</a>
           </li>
           <li>
-            <Link to="#about">ABOUT</Link>
+            <a href="#about">ABOUT</a>
           </li>
           <li>
-            <Link to="#service">SERVICES</Link>
+            <a href="#service">SERVICES</a>
           </li>
           <li>
-            <Link to="#project">PROJECT</Link>
+            <a href="#project">PROJECT</a>
           </li>
           <li>
-            <Link to="#contact">CONTACT US</Link>
+            <a href="#contact">CONTACT US</a>
           </li>
         </ul>
       </div>
@@ -112,19 +112,19 @@ export default function Sets() {
           <ul>
             <div className="mobile-li-main">
               <li onClick={closeNav}>
-                <Link to="#home">HOME</Link>
+                <a href="#home">HOME</a>
               </li>
               <li onClick={closeNav}>
-                <Link to="#about">ABOUT</Link>
+                <a href="#about">ABOUT</a>
               </li>
               <li onClick={closeNav}>
-                <Link to="#service">SERVICES</Link>
+                <a href="#service">SERVICES</a>
               </li>
               <li onClick={closeNav}>
-                <Link to="#project">PROJECTS</Link>
+                <a href="#project">PROJECTS</a>
               </li>
               <li onClick={closeNav}>
-                <Link to="#contact">CONTACT US</Link>
+                <a href="#contact">CONTACT US</a>
               </li>
             </div>
           </ul>
@@ -140,7 +140,7 @@ export default function Sets() {
             interests and trust.
           </p>
           <div className="banner-btn">
-            <Link to="#contact">Start Now</Link>
+            <a href="#contact">Start Now</a>
           </div>
         </div>
         <div className="banner-image">
@@ -148,7 +148,6 @@ export default function Sets() {
         </div>
         <div
           className={`${popUp ? "banner-form-main" : "show-form"}`}
-          //  onClick={close}
         >
           <div className="banner-form">
             <span onClick={close}>&times;</span>
@@ -681,20 +680,20 @@ export default function Sets() {
           </div>
         </div>
         <div className="footer-column3">
-          <Link to="">www.sets.com</Link>
+          <a href="">www.sets.com</a>
           <br />
-          <Link to="">+91 1122334455</Link>
+          <a href="">+91 1122334455</a>
           <br />
-          <Link to="">info@sets.com</Link>
+          <a href="">info@sets.com</a>
         </div>
         <div className="footer-column2">
-          <Link to="#home">Home</Link>
+          <a href="#home">Home</a>
           <br />
-          <Link to="#about">About</Link>
+          <a href="#about">About</a>
           <br />
-          <Link to="#blog">Blogs</Link>
+          <a href="#blog">Blogs</a>
           <br />
-          <Link to="#frequently">FAQs</Link>
+          <a href="#frequently">FAQs</a>
           <br />
         </div>
         <div className="footer-column4">
