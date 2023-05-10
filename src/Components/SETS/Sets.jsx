@@ -3,8 +3,21 @@ import "./Sets.css";
 // import onScrollEvent from "./onScrollEvent";
 import Logo from "../Images/Sets Logo.png";
 import Bannerimg from "../Images/city5.jpg";
-import {Link as ScrollToId} from "react-scroll"
+import { Link as ScrollToId } from "react-scroll";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import axios from "axios";
+
+const toastOptions = {
+  position: "top-center",
+  autoClose: 500,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  theme: "dark",
+};
 
 export default function Sets() {
   function scrolltotop() {
@@ -16,17 +29,14 @@ export default function Sets() {
     "https://plus.unsplash.com/premium_photo-1663011305288-d55df8afa58e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80";
   const Image2 =
     "https://images.unsplash.com/photo-1565728744382-61accd4aa148?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2073&q=80";
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [message, setMessage] = useState("");
-  const [popUp, setPopup] = useState(false);
-  const [nav, setNav] = useState(false);
 
-  console.log(name);
-  console.log(email);
-  console.log(phone);
-  console.log(message);
+  const [popUp, setPopup] = useState(false);
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
 
   const close = () => {
     setPopup(!popUp);
@@ -67,6 +77,35 @@ export default function Sets() {
     }
   }
 
+  const submitHandler = (e) => {
+    e.preventDefault();
+    axios
+      .post("https://getform.io/f/07b22bfb-7e6b-4c2e-b610-c4c73983b7a5", data)
+      .then((res) => {
+        toast.success("Message sent successfully ", toastOptions);
+        close();
+       setData({name:"",email:"",message:"",phone:""})
+      })
+      .catch((err) => {
+        if (err) {
+          toast.error("Failed to send data ", toastOptions);
+        }
+      });
+  };
+  const contactHandler = (e) => {
+    e.preventDefault();
+    axios
+      .post("https://getform.io/f/07b22bfb-7e6b-4c2e-b610-c4c73983b7a5", data)
+      .then((res) => {
+        toast.success("Message sent successfully ", toastOptions);
+        setData({name:"",email:"",message:"",phone:""})
+      })
+      .catch((err) => {
+        if (err) {
+          toast.error("Failed to send data ", toastOptions);
+        }
+      });
+  };
   return (
     <div className="App">
       <div className="navbar-container">
@@ -146,14 +185,10 @@ export default function Sets() {
         <div className="banner-image">
           <img src={Bannerimg} alt="" />
         </div>
-        <div
-          className={`${popUp ? "banner-form-main" : "show-form"}`}
-        >
+        <div className={`${popUp ? "banner-form-main" : "show-form"}`}>
           <div className="banner-form">
             <span onClick={close}>&times;</span>
-            <form
-              action="https://getform.io/f/07b22bfb-7e6b-4c2e-b610-c4c73983b7a5"
-              method="POST">
+            <form onSubmit={submitHandler}>
               <div className="form-heading">
                 <h6>Contact Us</h6>
               </div>
@@ -165,6 +200,8 @@ export default function Sets() {
                     name="name"
                     placeholder="Enter your name..."
                     required
+                    value={data.name}
+                    onChange={(e) => setData({ ...data, name: e.target.value })}
                   />
                 </div>
                 <div className="form-element">
@@ -172,13 +209,21 @@ export default function Sets() {
                   <input
                     type="email"
                     name="email"
+                    value={data.email}
                     placeholder="Enter your mail..."
                     required
+                    onChange={(e) =>
+                      setData({ ...data, email: e.target.value })
+                    }
                   />
                 </div>
                 <div className="form-element">
                   <label htmlFor="">Phone</label> <br />
                   <input
+                  value={data.phone}
+                    onChange={(e) =>
+                      setData({ ...data, phone: e.target.value })
+                    }
                     type="number"
                     name="phone"
                     placeholder="Enter your number..."
@@ -187,6 +232,10 @@ export default function Sets() {
                 <div className="form-element">
                   <label htmlFor="">Message</label> <br />
                   <input
+                  value={data.message}
+                    onChange={(e) =>
+                      setData({ ...data, message: e.target.value })
+                    }
                     type="text"
                     name="message"
                     placeholder="Enter your message..."
@@ -540,7 +589,7 @@ export default function Sets() {
             />
             <div className="blog-cart-content">
               <Link to="">Technology</Link>
-              <a href="/blog1" >
+              <a href="/blog1">
                 <h3>
                   The Ultimate Guide to Electromechanical Equipment Installation
                   and Maintenance
@@ -560,6 +609,7 @@ export default function Sets() {
               </a>
             </div>
           </div>
+
           <div className="blog-cart">
             <img
               src="https://images.unsplash.com/photo-1546426094-ac58edd9eae5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1936&q=80"
@@ -581,37 +631,39 @@ export default function Sets() {
         </div>
         <div className="form-part2">
           <div className="form-input">
-            <form
-              action="https://getform.io/f/07b22bfb-7e6b-4c2e-b610-c4c73983b7a5"
-              method="POST">
+            <form onSubmit={contactHandler}>
               <input
-                onChange={(e) => setName(e.target.value)}
+                onChange={(e) => setData({ ...data, name: e.target.value })}
                 type="text"
                 placeholder="Full Name"
                 name="name"
                 required
+                value={data.name}
               />
               <br />
               <input
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => setData({ ...data, email: e.target.value })}
                 type="email"
                 placeholder="Email"
                 name="email"
                 required
+                value={data.email}
               />
               <br />
               <input
-                onChange={(e) => setPhone(e.target.value)}
+                onChange={(e) => setData({ ...data, phone: e.target.value })}
                 type="number"
+                value={data.phone}
                 placeholder="Phone Number"
                 name="phone"
                 required
               />
               <br />
               <textarea
-                onChange={(e) => setMessage(e.target.value)}
+                onChange={(e) => setData({ ...data, message: e.target.value })}
                 placeholder=" Message..."
                 name="message"
+                value={data.message}
               />
               <br />
               <button>Send Message</button>
@@ -632,13 +684,13 @@ export default function Sets() {
               <div className="form-row">
                 <h3>
                   <i className="ri-mail-fill"></i>
-                  <Link to=""> info@sets.com </Link>
+                  <Link to="">info@solidedgetech.com </Link>
                 </h3>
               </div>
               <div className="form-row">
                 <h3>
                   <i className="ri-phone-fill"></i>
-                  <Link to=""> +91 1122334455</Link>
+                  <Link to=""> +919118811192</Link>
                 </h3>
               </div>
             </div>
@@ -680,11 +732,11 @@ export default function Sets() {
           </div>
         </div>
         <div className="footer-column3">
-          <a href="">www.sets.com</a>
+          <a href="https://solidedgetech.com" target="_blank">www.solidedgetech.com</a>
           <br />
-          <a href="">+91 1122334455</a>
+          <a href="">+91 9118811192</a>
           <br />
-          <a href="">info@sets.com</a>
+          <a href="">info@solidedgetech.com</a>
         </div>
         <div className="footer-column2">
           <a href="#home">Home</a>
@@ -719,7 +771,9 @@ export default function Sets() {
         <div className="after-footer-text2">
           <p>
             Created By
-            <a href="http://www.webseeder.in/" target="_blank" rel='noreferrer'>WebSeeder Technologies</a>
+            <a href="http://www.webseeder.in/" target="_blank" rel="noreferrer">
+              WebSeeder Technologies
+            </a>
           </p>
         </div>
       </div>

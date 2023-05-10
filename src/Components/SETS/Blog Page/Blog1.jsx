@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import "./blog.css";
 import Logo from "../../Images/Sets Logo.png";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import axios from "axios";
 import { VerticalAlignBottom } from "@mui/icons-material";
+
+const toastOptions = {
+  position: "top-center",
+  autoClose: 500,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  theme: "dark",
+};
 export default function Blog() {
 
   var showData = (e) => {
@@ -17,24 +30,42 @@ export default function Blog() {
       content.style.display = "block";
       Cursor.innerText = "X";
     }
-   
   };
 
-  const closeNav= ()=>{
-  
-  const myId =document.getElementById('content');
-  myId.style.display="none";
-  var Cursor = document.getElementById("img");   
-  Cursor.innerText = "☰";
-}
-
-
+  const closeNav = () => {
+    const myId = document.getElementById("content");
+    myId.style.display = "none";
+    var Cursor = document.getElementById("img");
+    Cursor.innerText = "☰";
+  };
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+    comment: "",
+  });
+  const submitHandler = (e) => {
+    e.preventDefault();
+    axios
+      .post("https://getform.io/f/07b22bfb-7e6b-4c2e-b610-c4c73983b7a5", data)
+      .then((res) => {
+        toast.success("Message sent successfully ", toastOptions);
+        setData({name:"",email:"",comment:""})
+      })
+      .catch((err) => {
+        if (err) {
+          toast.error("Failed to send data ", toastOptions);
+        }
+      });
+  };
   return (
     <div>
       <div className="navbar-container">
         <ul>
           <li>
-            <img src={Logo} alt="" />
+            <Link to="/">
+              
+              <img src={Logo} alt="" />
+            </Link>
           </li>
           <br />
           <li onClick={closeNav}>
@@ -55,21 +86,20 @@ export default function Blog() {
         </ul>
       </div>
       <div className="mobile-header">
-          <div className="mobile-logo">
-            <Link to="/">
-              
-              <img src={Logo} alt="" />
-            </Link>
-          </div>
-          <div className="mobile-icon">
-            <Link to="" id="img" onClick={showData}>
-              ☰
-            </Link>
-          </div>
+        <div className="mobile-logo">
+          <Link to="/">
+            <img src={Logo} alt="" />
+          </Link>
         </div>
-        <div className="mobile-navbar" id="content">
-          <div className="mobile-navbar-content">
-            <ul>
+        <div className="mobile-icon">
+          <Link to="" id="img" onClick={showData}>
+            ☰
+          </Link>
+        </div>
+      </div>
+      <div className="mobile-navbar" id="content">
+        <div className="mobile-navbar-content">
+          <ul>
             <div className="mobile-li-main">
               <li>
                 <Link to="/">HOME</Link>
@@ -86,10 +116,10 @@ export default function Blog() {
               <li>
                 <Link to="/">CONTACT US</Link>
               </li>
-              </div>
-            </ul>
-          </div>
+            </div>
+          </ul>
         </div>
+      </div>
       <div className="blog-main-container" onClick={closeNav}>
         <div className="blog-left-part">
           <div className="blog-journal">
@@ -130,7 +160,6 @@ export default function Blog() {
                 Solid Edge to the top of the green energy market.
               </p>
               <p>
-                
                 At Solid Edge, we place a high emphasis on our dedication to
                 going above and beyond for our clients. We work hard to deliver
                 the best services at fair prices, and our team is constantly
@@ -142,7 +171,6 @@ export default function Blog() {
                 every turn.
               </p>
               <p>
-                
                 In today's modern world, air conditioning, ventilation, and air
                 filtration systems are essential for maintaining comfortable and
                 healthy indoor environments. However, proper installation and
@@ -220,7 +248,12 @@ export default function Blog() {
         <div className="blog-right-part" onClick={closeNav}>
           <div className="blog-right-search">
             <div className="blog-right-input">
-              <input type="text" name="" id="" placeholder="Keyword Search..."/>
+              <input
+                type="text"
+                name=""
+                id=""
+                placeholder="Keyword Search..."
+              />
             </div>
             <div className="blog-right-icon">
               <Link to="">
@@ -244,7 +277,7 @@ export default function Blog() {
                   Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit.
                 </Link>
                 <p>
-                  <i class="ri-time-line" ></i>12 Feb, 2020
+                  <i class="ri-time-line"></i>12 Feb, 2020
                 </p>
               </div>
             </div>
@@ -257,7 +290,7 @@ export default function Blog() {
               </div>
               <div className="recent-data">
                 <Link to="">
-                The Ultimate Guide to Plumbing Installation and Repair
+                  The Ultimate Guide to Plumbing Installation and Repair
                 </Link>
                 <p>
                   <i class="ri-time-line"></i>12 Feb, 2020
@@ -273,8 +306,8 @@ export default function Blog() {
               </div>
               <div className="recent-data">
                 <Link to="">
-                The Ultimate Guide to Electromechanical Equipment Installation
-                and Maintenance
+                  The Ultimate Guide to Electromechanical Equipment Installation
+                  and Maintenance
                 </Link>
                 <p>
                   <i class="ri-time-line"></i>12 Feb, 2020
@@ -329,29 +362,45 @@ export default function Blog() {
         </div>
         <div className="blog-comment-form">
           <form
-            action="https://getform.io/f/07b22bfb-7e6b-4c2e-b610-c4c73983b7a5"
-            method="POST"
-          >
-            <input type="text" placeholder="Name*" name="name" required />
+            onSubmit={submitHandler}>
+            <input
+              type="text"
+              placeholder="Name*"
+              name="name"
+              required
+              value={data.name}
+              onChange={(e) => setData({ name: e.target.value })}
+            />
             <br />
             <input
               type="text"
               placeholder="Email*"
               name="email"
               required
+              value={data.email}
+              onChange={(e) => setData({ email: e.target.value })}
             />
             <br />
-            <input type="text" placeholder="Comment" name="comments" /> <br />
-            <button>Post Comments</button>
+            <input
+              type="text"
+              placeholder="Comment"
+              name="comments"
+              value={data.comment}
+              onChange={(e) => setData({ comment: e.target.value })}
+            />
+            <br />
+            <button type='submit'>Post Comments</button>
           </form>
         </div>
       </div>
       <div className="footer-container" onClick={closeNav}>
         <div className="footer-column1">
-         <Link to="/"> <img src={Logo} alt="" /> </Link>
+          <Link to="/">
+            
+            <img src={Logo} alt="" />
+          </Link>
           <div className="after-footer-icons">
             <Link to="">
-              
               <i class="ri-facebook-fill"></i>
             </Link>
             <Link to="">
@@ -361,17 +410,16 @@ export default function Blog() {
               <i class="ri-instagram-fill"></i>
             </Link>
             <Link to="">
-              
               <i class="ri-linkedin-fill"></i>
             </Link>
           </div>
         </div>
         <div className="footer-column3">
-          <ul>
-            <Link to="">www.sets.com</Link> <br />
-            <Link to="">+91 9988776655</Link> <br />
-            <Link to="">info@sets.com</Link>
-          </ul>
+          <a href="https://solidedgetech.com" target="_blank">www.solidedgetech.com</a>
+          <br />
+          <a href="">+91 9118811192</a>
+          <br />
+          <a href="">info@solidedgetech.com</a>
         </div>
         <div className="footer-column2">
           <Link to="">Home</Link>
@@ -384,15 +432,15 @@ export default function Blog() {
           <br />
         </div>
         <div className="footer-column4">
-        <div className="footer-column4-1">
-          <Link to="">Privacy Policy</Link> <br />
-          <Link to="">Risk Disclosure</Link> <br />
+          <div className="footer-column4-1">
+            <Link to="">Privacy Policy</Link> <br />
+            <Link to="">Risk Disclosure</Link> <br />
           </div>
           <div className="footer-column4-2">
-          <Link to="">Terms and Conditions</Link>
-          <br />
-          <Link to="">Security and Fraud Awareness</Link>
-          <br />
+            <Link to="">Terms and Conditions</Link>
+            <br />
+            <Link to="">Security and Fraud Awareness</Link>
+            <br />
           </div>
         </div>
       </div>
@@ -407,7 +455,7 @@ export default function Blog() {
           <p>
             Created By
             <Link to="http://www.webseeder.in/">WebSeeder Technologies</Link>
-            </p>
+          </p>
         </div>
       </div>
     </div>

@@ -4,8 +4,8 @@ import Sets from "./Components/SETS/Sets";
 import Blog from "./Components/SETS/Blog Page/Blog1";
 import Blog2 from "./Components/SETS/Blog Page/Blog2"
 import Blog3 from "./Components/SETS/Blog Page/Blog3"
-
-
+import {ToastContainer} from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 function App() {
   return (
@@ -20,6 +20,7 @@ function App() {
           <Route exact path="/blog3" element={<Blog3 />} />
 
         </Routes>
+        <ToastContainer/>
        </BrowserRouter>
      </div>
     </>

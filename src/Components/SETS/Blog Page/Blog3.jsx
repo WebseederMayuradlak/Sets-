@@ -1,7 +1,21 @@
-import React from "react";
+import React,{useState} from "react";
 
 import Logo from "../../Images/Sets Logo.png";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import axios from "axios";
+import { VerticalAlignBottom } from "@mui/icons-material";
+
+const toastOptions = {
+  position: "top-center",
+  autoClose: 500,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  theme: "dark",
+};
 export default function Blog() {
  
   var showData = (e) => {
@@ -16,7 +30,7 @@ export default function Blog() {
       content.style.display = "block";
       Cursor.innerText = "X";
     }
-   
+    
   };
 
   const closeNav= ()=>{
@@ -26,14 +40,32 @@ export default function Blog() {
   var Cursor = document.getElementById("img");   
   Cursor.innerText = "☰";
 }
- 
+const [data, setData] = useState({
+  name: "",
+  email: "",
+  comment: "",
+});
+const submitHandler = (e) => {
+  e.preventDefault();
+  axios
+    .post("https://getform.io/f/07b22bfb-7e6b-4c2e-b610-c4c73983b7a5", data)
+    .then((res) => {
+      toast.success("Message sent successfully ", toastOptions);
+      setData({name:"",email:"",comment:""})
+    })
+    .catch((err) => {
+      if (err) {
+        toast.error("Failed to send data ", toastOptions);
+      }
+    });
+};
  
   return (
     <div>
       <div className="navbar-container">
         <ul>
           <li>
-            <img src={Logo} alt="" />
+          <Link to="/">   <img src={Logo} alt=""  /> </Link>
           </li>
           <br />
           <li onClick={closeNav}>
@@ -301,20 +333,34 @@ export default function Blog() {
         </div>
         <div className="blog-comment-form">
           <form
-            action="https://getform.io/f/07b22bfb-7e6b-4c2e-b610-c4c73983b7a5"
-            method="POST"
-          >
-            <input type="text" placeholder="Name*" name="name" required />
+            onSubmit={submitHandler}>
+            <input
+              type="text"
+              placeholder="Name*"
+              name="name"
+              required
+              value={data.name}
+              onChange={(e) => setData({ name: e.target.value })}
+            />
             <br />
             <input
               type="text"
               placeholder="Email*"
               name="email"
               required
+              value={data.email}
+              onChange={(e) => setData({ email: e.target.value })}
             />
             <br />
-            <input type="text" placeholder="Comment" name="comments" /> <br />
-            <button>Post Comments</button>
+            <input
+              type="text"
+              placeholder="Comment"
+              name="comments"
+              value={data.comment}
+              onChange={(e) => setData({ comment: e.target.value })}
+            />
+            <br />
+            <button type='submit'>Post Comments</button>
           </form>
         </div>
       </div>
@@ -339,11 +385,11 @@ export default function Blog() {
           </div>
         </div>
         <div className="footer-column3">
-          <ul>
-            <Link to="">www.sets.com</Link> <br />
-            <Link to="">+91 9988776655</Link> <br />
-            <Link to="">info@sets.com</Link>
-          </ul>
+          <a href="https://solidedgetech.com" target="_blank">www.solidedgetech.com/</a>
+          <br />
+          <a href="">+91 9118811192</a>
+          <br />
+          <a href="">info@solidedgetech.com</a>
         </div>
         <div className="footer-column2">
           <Link to="">Home</Link>
