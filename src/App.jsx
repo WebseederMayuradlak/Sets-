@@ -1,7 +1,7 @@
 import "./App.css";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Sets from "./Components/SETS/Sets";
-import Blog from "./Components/SETS/Blog Page/Blog1";
+import Blog1 from "./Components/SETS/Blog Page/Blog1";
 import Blog2 from "./Components/SETS/Blog Page/Blog2"
 import Blog3 from "./Components/SETS/Blog Page/Blog3"
 import {ToastContainer} from "react-toastify"
@@ -15,9 +15,9 @@ function App() {
      <BrowserRouter>
          <Routes>
            <Route exact path="/" element={<Sets />} />
-          <Route exact path="/blog1" element={<Blog />} />
-          <Route exact path="/blog2" element={<Blog2 />} />
-          <Route exact path="/blog3" element={<Blog3 />} />
+          <Route  path="/blog1" element={<Blog1 />} />
+          <Route  path="/blog2" element={<Blog2 />} />
+          {/* <Route exact path="/blog3" element={<Blog3 />} /> */}
 
         </Routes>
         <ToastContainer/>

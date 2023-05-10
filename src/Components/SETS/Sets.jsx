@@ -109,13 +109,18 @@ export default function Sets() {
   return (
     <div className="App">
       <div className="navbar-container">
-        <ul>
+      <div className="navone">
+      <ul>
           <li>
-            <Link to="">
-              <img src={Logo} alt="" />
+            <Link href="">
+              {" "}
+              <img src={Logo} alt="" />{" "}
             </Link>
           </li>
-          <br />
+          </ul>
+          </div>
+          <div className="navtwo">
+        <ul>
           <li>
             <a href="#home">HOME</a>
           </li>
@@ -131,9 +136,10 @@ export default function Sets() {
           <li>
             <a href="#contact">CONTACT US</a>
           </li>
+        
         </ul>
       </div>
-
+      </div>
       <div className="mobile-header">
         <div className="mobile-logo">
           <Link to="/">
@@ -610,7 +616,7 @@ export default function Sets() {
             </div>
           </div>
 
-          <div className="blog-cart">
+          {/* <div className="blog-cart">
             <img
               src="https://images.unsplash.com/photo-1546426094-ac58edd9eae5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1936&q=80"
               alt=""
@@ -621,7 +627,7 @@ export default function Sets() {
                 <h3> Additions in conveying or collected objection </h3>
               </a>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -751,13 +757,11 @@ export default function Sets() {
         <div className="footer-column4">
           <div className="footer-column4-1">
             <Link to="">Privacy Policy</Link> <br />
-            <Link to="">Risk Disclosure</Link> <br />
+            
           </div>
           <div className="footer-column4-2">
             <Link to="">Terms and Conditions</Link>
-            <br />
-            <Link to="">Security and Fraud Awareness</Link>
-            <br />
+          
           </div>
         </div>
       </div>

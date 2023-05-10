@@ -64,33 +64,40 @@ const submitHandler = (e) => {
   return (
     <div>
       <div className="navbar-container">
+      <div className="navone">
+      <ul>
+          <li>
+            <a href="/">
+              
+              <img src={Logo} alt="" />
+            </a>
+          </li>
+          </ul>
+          </div>
+          <div className="navtwo">
         <ul>
-          <li> 
-            <Link to="/">   <img src={Logo} alt=""  /> </Link>
-          
+          <li>
+            <a href="#home">HOME</a>
           </li>
-          <br />
-          <li  onClick={closeNav}>
-            <Link to="/">HOME</Link>
+          <li>
+            <a href="#about">ABOUT</a>
           </li>
-          <li  onClick={closeNav}>
-            <Link to="/#about">ABOUT</Link>
+          <li>
+            <a href="#service">SERVICES</a>
           </li>
-          <li  onClick={closeNav}>
-            <Link to="/#home">SERVICES</Link>
+          <li>
+            <a href="#project">PROJECT</a>
           </li>
-          <li  onClick={closeNav}>
-            <Link to="/#home">PROJECT</Link>
-          </li>
-          <li  onClick={closeNav}>
-            <Link to="/#home">CONTACT US</Link>
+          <li>
+            <a href="#contact">CONTACT US</a>
           </li>
         </ul>
+      </div>
       </div>
       <div className="mobile-header">
           <div className="mobile-logo">
             <Link to="/">
-              
+               
               <img src={Logo} alt="" />
             </Link>
           </div>
@@ -234,27 +241,7 @@ const submitHandler = (e) => {
               </Link>
             </div>
           </div>
-          <div className="blog-right-recent"  onClick={closeNav}>
-            <div className="blog-right-heading">
-              <h2>Recent Post</h2>
-            </div>
-            <div className="recent1">
-              <div className="recent1-img1">
-                <img
-                  src="https://plus.unsplash.com/premium_photo-1673203734655-d58df8554c6c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
-                  alt=""
-                />
-              </div>
-              <div className="recent-data">
-                <Link to="">
-                The Ultimate Guide to Plumbing Installation and Repair
-                </Link>
-                <p>
-                  <i class="ri-time-line"></i>12 Feb, 2020
-                </p>
-              </div>
-            </div>
-            <div className="recent1">
+          <div className="recent1">
               <div className="recent1-img1">
                 <img
                   src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2080&q=80"
@@ -262,8 +249,8 @@ const submitHandler = (e) => {
                 />
               </div>
               <div className="recent-data">
-                <Link to="">
-                The Ultimate Guide to Plumbing Installation and Repair
+                <Link to="/">
+                  The Ultimate Guide to Plumbing Installation and Repair
                 </Link>
                 <p>
                   <i class="ri-time-line"></i>12 Feb, 2020
@@ -279,14 +266,14 @@ const submitHandler = (e) => {
               </div>
               <div className="recent-data">
                 <Link to="">
-                The Ultimate Guide to Plumbing Installation and Repair
+                  The Ultimate Guide to Electromechanical Equipment Installation
+                  and Maintenance
                 </Link>
                 <p>
                   <i class="ri-time-line"></i>12 Feb, 2020
                 </p>
               </div>
             </div>
-          </div>
           <div className="blog-category-container"  onClick={closeNav}>
             <div className="blog-category-heading">
               <h2>Category List</h2>
@@ -386,7 +373,7 @@ const submitHandler = (e) => {
           </div>
         </div>
         <div className="footer-column3">
-          <a href="https://solidedgetech.com" target="_blank">www.solidedgetech.com/</a>
+          <a href="https://solidedgetech.com" target="_blank">www.solidedgetech.com</a>
           <br />
           <a href="">+91 9118811192</a>
           <br />
