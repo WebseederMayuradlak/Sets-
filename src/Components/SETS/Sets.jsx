@@ -554,7 +554,7 @@ export default function Sets() {
                 of a construction project?
                 <span>&#x3e;</span>
               </label>
-              <input type="radio" id="second" name="faq" checked />
+              <input type="radio" id="second" name="faq"  />
               <div className="content">
                 <p>
                   Technical services can significantly impact the cost and
@@ -569,7 +569,7 @@ export default function Sets() {
                 What is the context of building design and construction?
                 <span>&#x3e;</span>
               </label>
-              <input type="radio" id="third" name="faq" checked />
+              <input type="radio" id="third" name="faq"  />
               <div className="content">
                 <p>
                   Building design and construction refers to the process of
@@ -690,13 +690,13 @@ export default function Sets() {
               <div className="form-row">
                 <h3>
                   <i className="ri-mail-fill"></i>
-                  <Link to="">info@solidedgetech.com </Link>
+                  <a href="mailto:adlak.mayur@webseeder.in"  rel="noreferrer">info@solidedgetech.com</a>
                 </h3>
               </div>
               <div className="form-row">
                 <h3>
                   <i className="ri-phone-fill"></i>
-                  <Link to=""> +919118811192</Link>
+                  <a href="tel:+919118811192"  target="_blank" rel="noreferrer">+91 9118811192</a>
                 </h3>
               </div>
             </div>
@@ -738,11 +738,11 @@ export default function Sets() {
           </div>
         </div>
         <div className="footer-column3">
-          <a href="https://solidedgetech.com" target="_blank">www.solidedgetech.com</a>
+          <a href="www.solidedgetech.com" >www.solidedgetech.com</a>
           <br />
-          <a href="">+91 9118811192</a>
+          <a href="tel:+919118811192">+91 9118811192</a>
           <br />
-          <a href="">info@solidedgetech.com</a>
+          <a href="mailto:adlak.mayur@webseeder.in"  rel="noreferrer">info@solidedgetech.com</a>
         </div>
         <div className="footer-column2">
           <a href="#home">Home</a>

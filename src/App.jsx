@@ -17,9 +17,7 @@ function App() {
            <Route exact path="/" element={<Sets />} />
           <Route  path="/blog1" element={<Blog1 />} />
           <Route  path="/blog2" element={<Blog2 />} />
-          {/* <Route exact path="/blog3" element={<Blog3 />} /> */}
-
-        </Routes>
+          </Routes>
         <ToastContainer/>
        </BrowserRouter>
      </div>

@@ -399,11 +399,11 @@ export default function Blog() {
           </div>
         </div>
         <div className="footer-column3">
-          <a href="https://solidedgetech.com" target="_blank">www.solidedgetech.com</a>
+          <a href="/" >www.solidedgetech.com</a>
           <br />
-          <a href="">+91 9118811192</a>
+          <a href="tel:9118811192">+91 9118811192</a>
           <br />
-          <a href="">info@solidedgetech.com</a>
+          <a href="mailto:adlak.mayur@webseeder.in">info@solidedgetech.com</a>
         </div>
         <div className="footer-column2">
           <Link to="">Home</Link>
@@ -438,7 +438,7 @@ export default function Blog() {
         <div className="after-footer-text2">
           <p>
             Created By
-            <Link to="http://www.webseeder.in/">WebSeeder Technologies</Link>
+            <a target='_blank' rel="noreferrer" href="http://www.webseeder.in/">WebSeeder Technologies</a>
           </p>
         </div>
       </div>
